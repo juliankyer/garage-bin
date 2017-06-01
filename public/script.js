@@ -3,14 +3,24 @@ const fetchItems = () => {
     .then(response => response.json())
     .then(items => appendItems(items))
     .catch(error => console.log(error));
-};
+}
+
+const postItem = (item) => {
+  fetch('/api/v1/items', {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(item)
+  })
+  .then(response => response.json())
+  .catch(error => console.log(error))
+}
 
 const appendItems = (items) => {
   items.forEach(item => {
-    let id = item.id;
-    let name = item.name;
-    let reason = item.reason;
-    let cleanliness = item.cleanliness;
+    const id = item.id;
+    const name = item.name;
+    const reason = item.reason;
+    const cleanliness = item.cleanliness;
     
     $('ul').append(`
       <li class="item-card" id=${id}>
@@ -27,8 +37,17 @@ const appendItems = (items) => {
 
 $('#add-btn').on('click', function(e) {
   e.preventDefault();
-  console.log('boooooom');
+  const newItem = {
+    name: $('#item-name').val(),
+    reason: $('#item-reason').val(),
+    cleanliness: $('#select-option').val()
+  };
   
+  postItem(newItem);
+  appendItems([newItem]);
+  
+  $('#item-name').val('');
+  $('#item-reason').val('');
 });
 
 $(document).ready(() => {

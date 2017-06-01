@@ -21,6 +21,14 @@ app.get('/api/v1/items', (request, response) => {
     .catch(error => response.status(500).json(error));
 });
 
+app.post('/api/v1/items', (request, response) => {
+  const item = request.body;
+  
+  database('garage').insert(item, 'id')
+    .then(ids => response.status(201).json({ id: ids[0] }))
+    .catch(error => response.status(500).json(error))
+});
+
 
 
 
