@@ -4,7 +4,7 @@ module.exports = {
 
   development: {
     client: 'pg',
-    connection: 'postgres://localhost/garage-bin',
+    connection: 'postgres://localhost/garage',
     migrations: {
       directory: './db/migrations',
     },
@@ -15,7 +15,7 @@ module.exports = {
   },
   test: {
     client: 'pg',
-    connection: process.env.DATABASE_URL || 'postgres://localhost/garage-bin',
+    connection: process.env.DATABASE_URL || 'postgres://localhost/garage',
     migrations: {
       directory: './db/migrations',
     },
