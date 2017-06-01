@@ -1,3 +1,5 @@
+
+
 const fetchItems = () => {
   fetch('/api/v1/items')
     .then(response => response.json())
@@ -28,7 +30,6 @@ const appendItems = (items) => {
         <p>Reason for being here: ${reason}</p>
         <div class="status-wrapper">
           <p>Cleanliness: ${cleanliness}</p>
-          <button class="remove">Remove</button>
         </div>
       </li>
     `)
