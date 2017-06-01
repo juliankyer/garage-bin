@@ -1,25 +1,16 @@
-/*#424242
-  #6d6d6d
-  #1b1b1b
-  #ad1457
-  #e35183
-  #78002e
-  #ffffff*/
-
-
 body, html {
   font-family: "Open Sans";
   height: 100%;
 }
 
+/*HEADER*/
 header {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: baseline;
+  align-items: center;
   color: #ffffff;
   background-color: #1b1b1b;
-  /*border-top: 6px solid #6d6d6d;*/
-  /*border-bottom: 4px solid #6d6d6d;*/
   font-size: 30px;
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
@@ -27,15 +18,16 @@ header {
 }
 
 h1 {
-  margin: 0px 10px;
+  margin: 5px 10px;
 }
 
 h2 {
   font-weight: 400;
-  margin: 0px 10px;
+  margin: 5px 10px;
   font-size: 20px;
 }
 
+/*USER INPUTS*/
 .inputs {
   background-color: #e35183;
   padding: 10px;
@@ -48,8 +40,78 @@ h2 {
 input {
   margin: 5px;
   width: 40%;
+  border: 1px solid #1b1b1b;
+  height: 15px;
+  width: 70vw;
 }
 
+select {
+  margin: 10px;
+}
+
+button {
+  border: 1px solid #1b1b1b;
+  background-color: #ffffff;
+  font-size: 15px;
+  padding: 8px;
+}
+
+button:hover {
+  background-color: #78002e;
+  color: #ffffff;
+}
+
+.inputs h2 {
+  margin: 0px 0px 7px;
+  font-size: 17px;
+}
+
+.inputs p {
+  margin: 10px 0px 0px;
+}
+
+select {
+  height: 20px;
+  width: 150px;
+  border: 2px solid #1b1b1b;
+}
+
+/*GARAGE CONTENTS*/
+.contents {
+  border-top: 3px solid #1b1b1b;
+  border-bottom: 3px solid #1b1b1b;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
+}
+
+.contents h2 {
+  margin: 5px;
+}
+
+.contents p {
+  margin: 5px;
+}
+
+/*GARAGE*/
+#opener:hover {
+  cursor: pointer;
+}
+
+.garage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.garage h2 {
+  font-weight: 600;
+  color: #ffffff;
+  border-bottom: 2px solid #e35183;
+  padding: 5px;
+  margin-bottom: 10px;
+}
 
 .garage {
   background-color: #424242;
@@ -64,12 +126,27 @@ input {
   border: 2px solid #1b1b1b;
 }
 
-.item-card h3 {
+.show-details {
   font-weight: 600;
   font-size: 20px;
   margin-left: 5px;
 }
 
+.show-details:hover {
+  cursor: pointer;
+}
+
 .item-card p {
   margin: 5px;
 }
+
+.door-closed {
+  display: none;
+}
+
+@media screen and (min-width: 500px) {
+  input {
+    max-width: 500px;
+  }
+}
+
