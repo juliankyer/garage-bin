@@ -1,0 +1,75 @@
+/*#424242
+  #6d6d6d
+  #1b1b1b
+  #ad1457
+  #e35183
+  #78002e
+  #ffffff*/
+
+
+body, html {
+  font-family: "Open Sans";
+  height: 100%;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  color: #ffffff;
+  background-color: #1b1b1b;
+  /*border-top: 6px solid #6d6d6d;*/
+  /*border-bottom: 4px solid #6d6d6d;*/
+  font-size: 30px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  padding: 15px;
+}
+
+h1 {
+  margin: 0px 10px;
+}
+
+h2 {
+  font-weight: 400;
+  margin: 0px 10px;
+  font-size: 20px;
+}
+
+.inputs {
+  background-color: #e35183;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color:#1b1b1b;
+}
+
+input {
+  margin: 5px;
+  width: 40%;
+}
+
+
+.garage {
+  background-color: #424242;
+  padding: 20px;
+  height: 100%;
+}
+
+.item-card {
+  margin: 10px;
+  padding: 5px;
+  background-color: #ffffff;
+  border: 2px solid #1b1b1b;
+}
+
+.item-card h3 {
+  font-weight: 600;
+  font-size: 20px;
+  margin-left: 5px;
+}
+
+.item-card p {
+  margin: 5px;
+}
