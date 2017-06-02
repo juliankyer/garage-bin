@@ -42,4 +42,41 @@ describe('Routes', () => {
         done();
       });
   });
+  
+  it('should allow you to put an item in the garage', (done) => {
+    chai.request(server)
+      .post('/api/v1/items')
+      .send({
+        name: 'Skis',
+        reason: 'Funsies',
+        cleanliness: 'sparkling'
+      })
+      .end((error, response) => {
+        response.should.have.status(201);
+        chai.request(server)
+          .get('/api/v1/items')
+          .end((err, res) => {
+            res.should.have.status(200);
+            res.body.length.should.equal(3);
+            res.body[2].name.should.equal('Skis');
+            res.body[2].reason.should.equal('Funsies');
+            res.body[2].cleanliness.should.equal('sparkling');
+            done();
+          });
+      });
+  });
+  
+  it('should not allow you to post an item to the db with incomplete data', (done) => {
+    chai.request(server)
+      .post('/api/v1/items')
+      .send({
+        name: 'Poles',
+        reason: 'Skis get lonely'
+      })
+      .end((error, response) => {
+        response.should.have.status(400);
+        response.body.error.should.equal('Make sure all data fields are present.');
+        done();
+      });
+  });
 });
