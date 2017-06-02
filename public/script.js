@@ -22,7 +22,7 @@ const appendItems = (items) => {
     const reason = item.reason;
     const cleanliness = item.cleanliness;
     
-    $('ul').append(`
+    $('ul').prepend(`
       <li class="item-card ${cleanliness}" id=${id}>
         <h3 class="show-details">${name}</h3>
         <div class="details">
@@ -48,8 +48,19 @@ const tallyItems = () => {
   $('#total').text(`Total things: ${$items}`);
 }
 
+const checkFields = () => {
+  const $name = $('#item-name').val();
+  const $reason = $('#item-reason').val();
+  const $addBtn = $('#add-btn');
+  
+  if ($name === '' || $reason === '') {
+    $addBtn.attr('disabled', true);
+  }
+}
+
 $('#add-btn').on('click', function(e) {
   e.preventDefault();
+  checkFields();
   const newItem = {
     name: $('#item-name').val(),
     reason: $('#item-reason').val(),
